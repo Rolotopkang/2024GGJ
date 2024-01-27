@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class E_TestLittle1 : EventBase
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void EventTrigger()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.EventTrigger();
+        Debug.Log("1触发了");
     }
 }

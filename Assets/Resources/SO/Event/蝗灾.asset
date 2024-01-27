@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u8757\u707E"
   m_EditorClassIdentifier: 
   ID: 101
-  IsBigEvent: 0
+  IsBigEvent: 1
   EventName: "\u8757\u707E"
   Discription: 
   EventSprite: {fileID: 0}
