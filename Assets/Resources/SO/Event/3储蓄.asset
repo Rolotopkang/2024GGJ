@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf34017ef5b4b5ca1968a748d1ce6e6, type: 3}
-  m_Name: "\u6D4B\u8BD5\u5C0F\u4E8B\u4EF6 1"
+  m_Name: "3\u50A8\u84C4"
   m_EditorClassIdentifier: 
-  ID: 1
+  ID: 3
   IsBigEvent: 0
-  EventName: 1
-  Discription: 
-  EventSprite: {fileID: 0}
-  Event: {fileID: 1336568245035435608, guid: 65064811504838e4584215cefcb5b17b, type: 3}
+  EventName: "\u50A8\u84C4"
+  Discription: "\u4E0B\u56DE\u5408\u91D1\u94B1\u4EA7\u91CF1.5\u500D"
+  EventSprite: {fileID: 21300000, guid: 472c943498550bc468bcb6ea7233abad, type: 3}
+  Event: {fileID: 234600765464424075, guid: b1e6a5752994dcd4c92b34148ccc6beb, type: 3}
   EventLastTime: 1
   EventWaitTime: 1
