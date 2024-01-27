@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -123,6 +123,11 @@ public class Profession_UI : MonoBehaviour
             if (current_Output_Value <=0 || current_Happiness_Output_Value <= 0)
             {
                 Debug.Log("æ— æ³•å†æ’¤å›žæŠ•èµ„");
+                return;
+            }
+            if (GameData.GetInstance().Money - Mathf.Abs(value) < -1.1f)
+            {
+                Debug.Log("ÎÞ·¨ÔÙ³·»ØÍ¶×Ê");
                 return;
             }
         }
