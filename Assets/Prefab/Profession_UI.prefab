@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4658654226009344457}
   - component: {fileID: 6115933397619765330}
   - component: {fileID: 8478238552369965302}
+  - component: {fileID: 7176207999708270139}
   m_Layer: 5
   m_Name: Profession_UI
   m_TagString: Untagged
@@ -79,6 +80,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7176207999708270139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177864966077419181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0370bf08af83ce479ee84523316de6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  level: 0
+  upgrade_Available: 0
+  output_Value_Per_Unit: 2
+  happiness_output_Value_Per_Unit: 1
+  current_Output_Value: 0
+  current_Happiness_Output_Value: 0
 --- !u!1 &2373569602627765847
 GameObject:
   m_ObjectHideFlags: 0

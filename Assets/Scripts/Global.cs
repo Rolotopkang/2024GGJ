@@ -41,7 +41,7 @@ public class Global : Singleton<Global>
 
 
     //下一回合
-    void NextTurn()
+    public void NextTurn()
     {
         IncidentUpdate();
         ResourceOutput();
