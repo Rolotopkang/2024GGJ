@@ -17,7 +17,7 @@ public class P_ResourceCollectc_Controller : MonoBehaviour
     {
         var emission = ParticleSystem.emission;
         ParticleSystem.GetComponent<Renderer>().material = resourceMaterial;
-        emission.rateOverTime = new ParticleSystem.MinMaxCurve(resourceCount);
+        emission.rateOverTime = new ParticleSystem.MinMaxCurve(resourceCount+1);
         ParticleSystem.Play();
     }
 }
