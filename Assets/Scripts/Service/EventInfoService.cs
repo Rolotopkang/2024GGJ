@@ -58,6 +58,25 @@ public class EventInfoService : MonoBehaviour , IEventInfoService
     }
     
     /// <summary>
+    /// 获取三个不重复随机小事件
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    public List<EventSO> Get3RandomSmallEventSo()
+    {
+        // 确保列表中至少有三个元素
+        if (eventDataList.Count < 3)
+        {
+            throw new InvalidOperationException("Not enough elements in the list");
+        }
+
+        eventDataList.Shuffle();
+
+        // 选取前三个元素
+        return eventDataList.GetRange(0, 3);
+    }
+    
+    /// <summary>
     /// 获取一个随机小事件
     /// </summary>
     /// <returns></returns>

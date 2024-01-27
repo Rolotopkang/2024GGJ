@@ -22,6 +22,13 @@ public interface IEventInfoService : IGameService
     public EventSO GetRandomBigEventSo();
 
     /// <summary>
+    /// 获取三个不重复随机小事件
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    public List<EventSO> Get3RandomSmallEventSo();
+    
+    /// <summary>
     /// 获取一个随机小事件
     /// </summary>
     /// <returns></returns>

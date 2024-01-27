@@ -953,6 +953,7 @@ MonoBehaviour:
   Happiness_Goal: 100
   supplies_Consume_Fix: 1
   Money_Spend_Current_Turn: 0
+  All_Money_Current_Turn: 0
   Money_Output_Fix: 0
   Supplies_Output_Fix: 1
   Science_Point_Output_Fix: 1

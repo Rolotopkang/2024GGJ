@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,5 +49,12 @@ public class EventButton : MonoBehaviour
         {
             EventState.text = new StringBuilder("还有").Append(EventBase.WaitRound).Append("回合触发事件").ToString();
         }
+        
+        ButtonColor.ChangeColorState(!EventBase.active?
+            ColorController.ColorState.Grew 
+            :ColorController.ColorState.Rainbow);
+        EventColor.ChangeColorState(!EventBase.active?
+            ColorController.ColorState.Grew 
+            :ColorController.ColorState.Rainbow);
     }
 }
