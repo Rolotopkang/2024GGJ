@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4203344831823949196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 916882152038774678}
+  - component: {fileID: 959645496033558293}
+  m_Layer: 0
+  m_Name: GameData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &916882152038774678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203344831823949196}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 915.01337, y: 530.00775, z: -6.0145626}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &959645496033558293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203344831823949196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10cbe78a8bbceea40bb413059f847d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turn_Num: 1
+  initial_Supplies: 12
+  initial_Money: 3
+  Money: 0
+  Money_Available: 0
+  Money_Available_Fix: 1
+  Supplies: 0
+  Science_Point: 0
+  Happiness: 0
+  Happiness_Goal: 100
+  supplies_Consume_Fix: 1
+  Money_Spend_Current_Turn: 0
+  All_Money_Current_Turn: 0
+  Money_Output_Fix: 0
+  Supplies_Output_Fix: 1
+  Science_Point_Output_Fix: 1
+  Draw_Card_Required_Money: 10
+  Draw_Card_Available: 1
+  industry_Return_Rate_Base_Num: 1
+  science_Return_Rate_Base_Num: 1
+  finance_Return_Rate_Base_Num: 1
+  Upgrade_Available: 0
+  industry_Level: 0
+  science_Level: 0
+  finance_Level: 0
+  upgrade_Required_Point_List: 030000000500000007000000090000000b000000
+  industry_OutPut: 010000000200000003000000
+  science_OutPut: 010000000200000003000000
+  finance_OutPut: 010000000200000003000000
+  industry_Base_OutPut: 010000000200000003000000
+  science_Base_OutPut: 010000000200000003000000
+  finance_Base_OutPut: 010000000200000003000000
+  industry_Consume: 010000000200000003000000
+  science_Consume: 010000000200000003000000
+  finance_Consume: 010000000200000003000000
+  return_Rate_Base: 010000000200000003000000
+  money_Limit: 
