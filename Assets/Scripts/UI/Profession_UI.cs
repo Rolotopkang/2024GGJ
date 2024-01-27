@@ -14,6 +14,7 @@ public class Profession_UI : MonoBehaviour
 
     [Header("产出")]
     public int output_Value_Per_Unit_initial = 2;
+    public int base_Output = 1;
     public int output_Value_Per_Unit = 2; //单位产出
     public float current_Output_Value = 0; //下回合产出
     public int happiness_output_Value_Per_Unit = 1; //单位幸福度产出
@@ -46,19 +47,19 @@ public class Profession_UI : MonoBehaviour
             case Enums.Professions.Industry:
                 {
                     resources_Value_Text.text = "物资："+ ((int)GameData.GetInstance().Supplies).ToString();
-                    output_Value_Text.text = current_Output_Value.ToString() + " 物资" + current_Happiness_Output_Value.ToString() + " 幸福";
+                    output_Value_Text.text = GetOutputValue().ToString() + " 物资" + current_Happiness_Output_Value.ToString() + " 幸福";
                 }
                 break;
             case Enums.Professions.Science:
                 {
                     resources_Value_Text.text = "科研：" + ((int)GameData.GetInstance().Science_Point).ToString();
-                    output_Value_Text.text = current_Output_Value.ToString() + " 科研" + current_Happiness_Output_Value.ToString() + " 幸福";
+                    output_Value_Text.text = GetOutputValue().ToString() + " 科研" + current_Happiness_Output_Value.ToString() + " 幸福";
                 }
                 break;
             case Enums.Professions.Finance:
                 {
                     resources_Value_Text.text = "资金：" + ((int)GameData.GetInstance().Money).ToString();
-                    output_Value_Text.text = current_Output_Value.ToString() + " 资金" + current_Happiness_Output_Value.ToString() + " 幸福";
+                    output_Value_Text.text = GetOutputValue().ToString() + " 资金" + current_Happiness_Output_Value.ToString() + " 幸福";
                 }
                 break;
         }
@@ -68,6 +69,12 @@ public class Profession_UI : MonoBehaviour
         uprade_Consume_Text.text = GameData.GetInstance().upgrade_Required_Point_List[level - 1].ToString();
     }
 
+
+    public int GetOutputValue()
+    {
+        int output_Value = (int)current_Output_Value + base_Output;
+        return output_Value;
+    }
 
     public void Invest_1()
     {
@@ -147,6 +154,7 @@ public class Profession_UI : MonoBehaviour
         }
 
         current_Output_Value += value * output_Per_Unit * fix;
+
         current_Happiness_Output_Value += value * happiness_output_Value_Per_Unit;
         GameData.GetInstance().Money -= value;
         GameData.GetInstance().Money_Spend_Current_Turn += value;
@@ -166,6 +174,7 @@ public class Profession_UI : MonoBehaviour
     {
         current_Output_Value = 0;
         current_Happiness_Output_Value = 0;
+        isLevel_One = false;
 
         UpdateInfo();
     }
