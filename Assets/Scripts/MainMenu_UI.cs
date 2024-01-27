@@ -10,7 +10,7 @@ public class MainMenu_UI : MonoBehaviour
         
     }
 
-    //¿ªÊ¼ÓÎÏ·
+    //å¼€å§‹æ¸¸æˆ
     void StartGame()
     {
         Global.Instance.StartGame();
@@ -18,7 +18,7 @@ public class MainMenu_UI : MonoBehaviour
     }
 
 
-    //ÍË³ö
+    //é€€å‡º
     private void Quit()
     {
         Application.Quit();
