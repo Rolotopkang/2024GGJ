@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameEventSystem : Singleton<GameEventSystem>, IGameService
 {
-    private List<EventBase> _eventBasesList;
+    private List<EventBase> _eventBasesList = new();
     private IEventInfoService EventInfoService;
 
     private void Start()
@@ -42,5 +42,24 @@ public class GameEventSystem : Singleton<GameEventSystem>, IGameService
         {
             eventBase.TriggerEvent();
         }
+    }
+
+    public void DelEvent(EventBase eventBase)
+    {
+        EventBase tmpdelEventBase = null;
+        foreach (EventBase tmp_eventBase in _eventBasesList)
+        {
+            if (tmp_eventBase.Equals(eventBase))
+            {
+                tmpdelEventBase = tmp_eventBase;
+            }
+        }
+
+        if (tmpdelEventBase == null)
+        {
+            Debug.LogError("没找到需要删除的事件");
+        }
+        _eventBasesList.Remove(tmpdelEventBase);
+        Destroy(tmpdelEventBase.gameObject);
     }
 }
