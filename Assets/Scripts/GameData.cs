@@ -33,6 +33,11 @@ public class GameData : Singleton<GameData>
     public bool Draw_Card_Available = true;
     //public int Upgrade_Refresh_Num = 0; //可刷新次数
 
+    [Header("回报率波动基础值")]
+    public int industry_Return_Rate_Base_Num = 1;
+    public int science_Return_Rate_Base_Num = 1;
+    public int finance_Return_Rate_Base_Num = 1;
+
     [Header("升级")]
     public bool Upgrade_Available = true;
 
@@ -44,10 +49,26 @@ public class GameData : Singleton<GameData>
     [Header("事业升级所需科技点列表")] 
     public List<int> upgrade_Required_Point_List = new List<int>();
 
-    [Header("回报率波动基础值")]
-    public int industry_Return_Rate_Base_Num = 1;
-    public int science_Return_Rate_Base_Num = 1;
-    public int finance_Return_Rate_Base_Num = 1;
+    [Header("升级:单位产出")]
+    public List<int> industry_OutPut = new List<int>();
+    public List<int> science_OutPut = new List<int>();
+    public List<int> finance_OutPut = new List<int>();
+
+    [Header("升级:基本产出")]
+    public List<int> industry_Base_OutPut = new List<int>();
+    public List<int> science_Base_OutPut = new List<int>();
+    public List<int> finance_Base_OutPut = new List<int>();
+
+    [Header("升级:物资消耗")]
+    public List<int> industry_Consume = new List<int>();
+    public List<int> science_Consume = new List<int>();
+    public List<int> finance_Consume = new List<int>();
+
+    [Header("升级:回报率")]
+    public List<int> return_Rate_Base = new List<int>();
+
+    [Header("升级:资金上限")]
+    public List<int> money_Limit = new List<int>();
 
 
     // Start is called before the first frame update

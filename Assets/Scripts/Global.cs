@@ -51,8 +51,6 @@ public class Global : Singleton<Global>
     public void NextTurn()
     {
         GameData.GetInstance().turn_Num += 1;
-
-        IncidentUpdate();
         ResourceOutput();
         SuppliesConsume();
         SuppliesTest();
@@ -70,7 +68,9 @@ public class Global : Singleton<Global>
         }
 
         GameData.GetInstance().Money_Spend_Current_Turn = 0;
-        
+
+        IncidentUpdate();
+
         money_UI.UpdateValue();
         Debug.Log("下一回合:"+ GameData.GetInstance().turn_Num);
     }
