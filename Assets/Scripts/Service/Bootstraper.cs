@@ -14,5 +14,6 @@ public class Bootstraper
         var eventInfoService = eventInfoObject.AddComponent<EventInfoService>();
         Object.DontDestroyOnLoad(eventInfoObject);
         ServiceLocator.Current.Register<IEventInfoService>(eventInfoService);
+        
     }
 }
