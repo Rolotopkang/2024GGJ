@@ -8,6 +8,8 @@ public class Global : Singleton<Global>
 
     public MainMenu_UI mainMenu_UI;
     public GameOver_UI gameOver_UI;
+    public Happiness_UI happiness_UI;
+    public Money_UI money_UI;
     public List<Profession_UI> Profession_List = new List<Profession_UI>();
 
 
@@ -41,6 +43,7 @@ public class Global : Singleton<Global>
             Profession_List[i].UpdateInfo();
         }
         
+        happiness_UI.Init();
     }
 
 
@@ -52,7 +55,10 @@ public class Global : Singleton<Global>
         SuppliesConsume();
         SuppliesTest();
         HappinessText();
-        
+
+        //幸福度更新
+        happiness_UI.UpdateValue();
+
         //重置产出修正值为1
         GameData.GetInstance().ResetOutputFix();
         //重置事业
@@ -61,6 +67,7 @@ public class Global : Singleton<Global>
             Profession_List[i].ResetData();
         }
 
+        GameData.GetInstance().Money_Spend_Current_Turn = 0;
         GameData.GetInstance().turn_Num += 1;
         Debug.Log("下一回合");
     }
@@ -85,6 +92,8 @@ public class Global : Singleton<Global>
         happy = Profession_List[0].current_Happiness_Output_Value + Profession_List[1].current_Happiness_Output_Value + Profession_List[2].current_Happiness_Output_Value;
         GameData.GetInstance().Happiness += happy;
 
+        GameData.GetInstance().All_Money_Current_Turn = GameData.GetInstance().Money;
+        GameData.GetInstance().Money_Spend_Current_Turn = 0;
     }
 
 
@@ -116,10 +125,16 @@ public class Global : Singleton<Global>
         }
     }
 
-    //投资，参数：序号，数值
-    public void Invest(int index, int value)
+    //更新所有事业信息
+    public void UpdateAllProfession()
     {
-        Profession_List[index].UpdateInvest(value);
+        for (int i = 0; i < Profession_List.Count; i++)
+        {
+            Profession_List[i].UpdateInfo();
+        }
+
+        money_UI.UpdateValue();
+
     }
 
 

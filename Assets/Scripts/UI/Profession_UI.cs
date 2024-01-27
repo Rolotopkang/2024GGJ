@@ -118,9 +118,9 @@ public class Profession_UI : MonoBehaviour
 
         current_Output_Value += value * output_Value_Per_Unit;
         current_Happiness_Output_Value += value * happiness_output_Value_Per_Unit;
-
-        UpdateInfo();
-
+        GameData.GetInstance().Money -= value;
+        GameData.GetInstance().Money_Spend_Current_Turn += value;
+        Global.GetInstance().UpdateAllProfession();
 
     }
 
