@@ -23,6 +23,7 @@ public class GameEventSystem : Singleton<GameEventSystem>, IGameService
         EventBase tmpEvent = Instantiate(eventSo.Event, this.transform);
         tmpEvent.eventSo = eventSo;
         _eventBasesList.Add(tmpEvent);
+        tmpEvent.Init();
         CreateEventIcon(eventSo, tmpEvent);
         
     }
@@ -30,5 +31,16 @@ public class GameEventSystem : Singleton<GameEventSystem>, IGameService
     private void CreateEventIcon(EventSO eventSo, EventBase eventBase)
     {
         
+    }
+
+    /// <summary>
+    /// 事件结算回合调用
+    /// </summary>
+    public void OnEndRound()
+    {
+        foreach (EventBase eventBase in _eventBasesList)
+        {
+            eventBase.TriggerEvent();
+        }
     }
 }
