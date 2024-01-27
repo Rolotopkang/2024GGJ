@@ -5,8 +5,9 @@ using UnityEngine;
 [Serializable]
 public class E_HuangZai : EventBase
 {
-    public override void TriggerEvent()
+    protected override void EventTrigger()
     {
-        Debug.Log("test!");
+        base.EventTrigger();
+        
     }
 }

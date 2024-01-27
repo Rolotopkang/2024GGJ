@@ -18,4 +18,7 @@ public class EventSO : ScriptableObject
 
     //事件脚本
     public EventBase Event;
+
+    public int EventLastTime;
+    public int EventWaitTime;
 }
