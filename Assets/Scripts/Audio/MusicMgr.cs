@@ -11,14 +11,14 @@ public class MusicMgr : Singleton<MusicMgr>
 
     //音效依附对象
     private AudioSource soundObj ;
-    
 
+    private AudioClip effectClip;
     //音效路径
     private string path;
 
     public void Init()
     {
-        path = "/Clip/";
+        path = "Clip/";
         bkMusic=GameObject.Find("Main Camera").GetComponent<AudioSource>();
         soundObj = GameObject.Find("EffectAudioSources").GetComponent<AudioSource>();
     }
@@ -87,9 +87,10 @@ public class MusicMgr : Singleton<MusicMgr>
     {
         if (soundObj == null)
             return;
+        effectClip = Resources.Load<AudioClip>(path + dictionary + "/" + clip);
         soundObj.volume = value;
-        soundObj.mute = ismute;
-        soundObj.PlayOneShot(Resources.Load<AudioClip>(path + dictionary + "/" + clip));
+        soundObj.mute = ismute;     
+        soundObj.PlayOneShot(effectClip);
     }
 
     /// <summary>
