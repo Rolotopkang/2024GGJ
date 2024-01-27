@@ -33,7 +33,10 @@ public class Global : Singleton<Global>
 
     void GameInit()
     {
-
+        GameData.GetInstance().Money = 0;
+        GameData.GetInstance().Science_Point = 0;
+        GameData.GetInstance().Happiness = 0;
+        GameData.GetInstance().Supplies = GameData.GetInstance().initial_Supplies;
     }
     
 
@@ -49,7 +52,7 @@ public class Global : Singleton<Global>
     //事件更新
     private void IncidentUpdate()
     {
-
+         
     }
 
 
