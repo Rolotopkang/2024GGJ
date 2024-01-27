@@ -11,14 +11,14 @@ public class MusicMgr : Singleton<MusicMgr>
 
     //音效依附对象
     private AudioSource soundObj ;
-    
 
+    private AudioClip effectClip;
     //音效路径
     private string path;
 
     public void Init()
     {
-        path = "/Clip/";
+        path = "Clip/";
         bkMusic=GameObject.Find("Main Camera").GetComponent<AudioSource>();
         soundObj = GameObject.Find("EffectAudioSources").GetComponent<AudioSource>();
     }
@@ -28,11 +28,11 @@ public class MusicMgr : Singleton<MusicMgr>
     /// 播放背景音乐
     /// </summary>
     /// <param name="name"></param>
-    public void PlayBkMusic(string dictionary,string clip,float value=0.5f,bool ismute=false)
+    public void PlayBkMusic(string file, string clip,float value=0.5f,bool ismute=false)
     {
         if (bkMusic == null)
             return;
-        bkMusic.clip = Resources.Load<AudioClip>(path + dictionary + "/" + clip);
+        bkMusic.clip = Resources.Load<AudioClip>(path + file + "/" + clip);
         bkMusic.volume = value;
         bkMusic.mute = ismute;
         bkMusic.Play();
@@ -63,11 +63,11 @@ public class MusicMgr : Singleton<MusicMgr>
     /// 改变背景音乐
     /// </summary>
     /// <param name="v"></param>
-    public void ChangeBKClip(string dictionary, string clip)
+    public void ChangeBKClip(string file, string clip)
     {
         if(bkMusic == null)
             return;
-        bkMusic.clip = Resources.Load<AudioClip>(path + dictionary + "/" + clip);
+        bkMusic.clip = Resources.Load<AudioClip>(path + file + "/" + clip);
         bkMusic.Play();
     }
     /// <summary>
@@ -83,13 +83,14 @@ public class MusicMgr : Singleton<MusicMgr>
     /// <summary>
     /// 播放音效
     /// </summary>
-    public void PlayEffectMusic(string dictionary, string clip, float value = 0.5f, bool ismute = false)
+    public void PlayEffectMusic(string file, string clip, float value = 0.5f, bool ismute = false)
     {
         if (soundObj == null)
             return;
+        effectClip = Resources.Load<AudioClip>(path + file + "/" + clip);
         soundObj.volume = value;
-        soundObj.mute = ismute;
-        soundObj.PlayOneShot(Resources.Load<AudioClip>(path + dictionary + "/" + clip));
+        soundObj.mute = ismute;     
+        soundObj.PlayOneShot(effectClip);
     }
 
     /// <summary>
