@@ -38,12 +38,12 @@ public class GameEventSystem : Singleton<GameEventSystem>, IGameService
     /// </summary>
     public void OnEndRound()
     {
-        for (int i = 0; i < _eventBasesList.Count; i++)
+        for (int i = _eventBasesList.Count - 1; i >= 0; i--)
         {
             _eventBasesList[i].TriggerEvent();
         }
     }
-
+    
     public void DelEvent(EventBase eventBase)
     {
         EventBase tmpdelEventBase = null;
