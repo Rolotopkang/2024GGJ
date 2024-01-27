@@ -1,45 +1,90 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class EventInfoService : MonoBehaviour , IEventInfoService
 {
-    public List<EventSO> itemDataList = new List<EventSO>();
-    public EventSO BaseItem = null;
+    [FormerlySerializedAs("itemDataList")] public List<EventSO> eventDataList = new List<EventSO>();
 
     private void Awake()
     {
         var _getSources = Resources.LoadAll<EventSO>("SO");
         foreach (EventSO source in _getSources)
         {
-            if (source.ID == 100)
-            {
-                BaseItem = source;
-            }
-            itemDataList.Add(source);
+            eventDataList.Add(source);
         }
-
-        if (BaseItem == null)
-        {
-            Debug.LogError("SO缺少基本道具");
-        }
-        Debug.Log("物品SO注册完毕");
+        Debug.Log("事件SO注册完毕");
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public EventSO GetEventSOByID(int id)
     {
-        foreach (EventSO EventSO in itemDataList)
+        foreach (EventSO EventSO in eventDataList)
         {
             if (id.Equals(EventSO.ID))
                 return EventSO;
         }
 
-        Debug.LogError("没有找到对应ID的鱼");
-        return BaseItem;
+        Debug.LogError("没有找到对应ID的事件");
+        return null;
+    }
+
+    /// <summary>
+    /// 获取一个随机大事件
+    /// </summary>
+    /// <returns></returns>
+    public EventSO GetRandomBigEventSo()
+    {
+        List<EventSO> tmp_eventsos = new List<EventSO>();
+        foreach (EventSO EventSO in eventDataList)
+        {
+            if (EventSO.IsBigEvent)
+            {
+                tmp_eventsos.Add(EventSO);
+            }
+        }
+
+        if (tmp_eventsos.Count <= 0)
+        {
+            Debug.LogError("没有大事件");
+        }
+        return tmp_eventsos[Random.Range(0, tmp_eventsos.Count)];
     }
     
+    /// <summary>
+    /// 获取一个随机小事件
+    /// </summary>
+    /// <returns></returns>
+    public EventSO GetRandomSmallEventSo()
+    {
+        List<EventSO> tmp_eventsos = new List<EventSO>();
+        foreach (EventSO EventSO in eventDataList)
+        {
+            if (!EventSO.IsBigEvent)
+            {
+                tmp_eventsos.Add(EventSO);
+            }
+        }
+
+        if (tmp_eventsos.Count <= 0)
+        {
+            Debug.LogError("没有little事件");
+        }
+        return tmp_eventsos[Random.Range(0, tmp_eventsos.Count)];
+    }
+    
+    /// <summary>
+    /// 获取事件列表
+    /// </summary>
+    /// <returns></returns>
     public List<EventSO> GetEventSOList()
     {
-        return itemDataList;
+        return eventDataList;
     }
 }

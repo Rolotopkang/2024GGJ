@@ -15,5 +15,10 @@ public class Bootstraper
         Object.DontDestroyOnLoad(eventInfoObject);
         ServiceLocator.Current.Register<IEventInfoService>(eventInfoService);
         
+        //注册事件中心类
+        var eventSystemObject = new GameObject("eventSystem");
+        var eventSystem = eventSystemObject.AddComponent<GameEventSystem>();
+        Object.DontDestroyOnLoad(eventSystemObject);
+        ServiceLocator.Current.Register<GameEventSystem>(eventSystem);
     }
 }

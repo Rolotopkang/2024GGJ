@@ -10,9 +10,24 @@ public class GameOver_UI : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void ShowGameOverUI(bool flag)
     {
-        
+        gameObject.SetActive(true);
+        if (flag)
+        {
+
+        }
+        else
+        {
+
+        }
     }
+
+
+    public void OnBecameInvisible()
+    {
+        Global.GetInstance().BackToMainMenu();
+    }
+
 }
