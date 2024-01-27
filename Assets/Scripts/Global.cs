@@ -156,6 +156,9 @@ public class Global : Singleton<Global>
     public void BackToMainMenu()
     {
         mainMenu_UI.gameObject.SetActive(true);
+        gameOver_UI.gameObject.SetActive(false);
+        GameData.GetInstance().turn_Num = 1;
+        happiness_UI.UpdateValue();
     }
 
 
