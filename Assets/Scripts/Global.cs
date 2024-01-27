@@ -72,10 +72,11 @@ public class Global : Singleton<Global>
         Debug.Log("下一回合");
     }
 
+
     //事件更新
     private void IncidentUpdate()
     {
-
+        GameEventSystem.GetInstance().OnEndRound();
     }
 
 
@@ -137,7 +138,6 @@ public class Global : Singleton<Global>
 
     }
 
-
     void GameSuccess()
     {
         gameOver_UI.ShowGameOverUI(true);
@@ -153,5 +153,21 @@ public class Global : Singleton<Global>
     {
         mainMenu_UI.gameObject.SetActive(true);
     }
+
+
+
+    //=========================================================================================================================
+
+    //接口
+
+    //=========================================================================================================================
+
+    //设置指定事业等级为1，参数：序号
+    public void SetProfessionLevel_One(int index)
+    {
+        Profession_List[index].isLevel_One = true;
+    }
+
+
 
 }
