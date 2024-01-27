@@ -72,6 +72,6 @@ public class EventBase : MonoBehaviour
     /// </summary>
     public virtual void EventCancel()
     {
-        
+        GameEventSystem.GetInstance().DelEvent(this);
     }
 }
