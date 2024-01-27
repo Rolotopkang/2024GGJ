@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEditor.Search;
 using UnityEngine;
 
-public class GameEventSystem : Singleton<GameEventSystem>
+public class GameEventSystem : Singleton<GameEventSystem>, IGameService
 {
     private List<EventBase> _eventBasesList;
     private IEventInfoService EventInfoService;
 
     private void Start()
     {
-        EventInfoService = ServiceLocator.Current.Get<IEventInfoService>();
-        EventInfoService.GetRandomEventSo().Event.TriggerEvent();
+        // EventInfoService = ServiceLocator.Current.Get<IEventInfoService>();
+        // EventInfoService.GetRandomEventSo().Event.TriggerEvent();
     }
 
     /// <summary>

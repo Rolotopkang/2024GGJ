@@ -16,8 +16,14 @@ public interface IEventInfoService : IGameService
     public List<EventSO> GetEventSOList();
 
     /// <summary>
-    /// 获取一个随机事件
+    /// 获取一个随机大事件
     /// </summary>
     /// <returns></returns>
-    public EventSO GetRandomEventSo();
+    public EventSO GetRandomBigEventSo();
+
+    /// <summary>
+    /// 获取一个随机小事件
+    /// </summary>
+    /// <returns></returns>
+    public EventSO GetRandomSmallEventSo();
 }

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: NewEvent
   m_EditorClassIdentifier: 
   ID: 101
+  IsBigEvent: 0
   EventName: "\u8757\u707E"
   Discription: 
-  Event: {fileID: 8315566126800813037, guid: a4eb1867fcbb0904a9cc1cfa134023ca, type: 3}
+  EventSprite: {fileID: 0}
+  Event: {fileID: 0}

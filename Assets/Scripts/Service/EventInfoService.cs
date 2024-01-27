@@ -31,17 +31,52 @@ public class EventInfoService : MonoBehaviour , IEventInfoService
                 return EventSO;
         }
 
-        Debug.LogError("没有找到对应ID的鱼");
+        Debug.LogError("没有找到对应ID的事件");
         return null;
     }
 
     /// <summary>
-    /// 获取一个随机事件
+    /// 获取一个随机大事件
     /// </summary>
     /// <returns></returns>
-    public EventSO GetRandomEventSo()
+    public EventSO GetRandomBigEventSo()
     {
-        return eventDataList[Random.Range(0, eventDataList.Count)];
+        List<EventSO> tmp_eventsos = new List<EventSO>();
+        foreach (EventSO EventSO in eventDataList)
+        {
+            if (EventSO.IsBigEvent)
+            {
+                tmp_eventsos.Add(EventSO);
+            }
+        }
+
+        if (tmp_eventsos.Count <= 0)
+        {
+            Debug.LogError("没有大事件");
+        }
+        return tmp_eventsos[Random.Range(0, tmp_eventsos.Count)];
+    }
+    
+    /// <summary>
+    /// 获取一个随机小事件
+    /// </summary>
+    /// <returns></returns>
+    public EventSO GetRandomSmallEventSo()
+    {
+        List<EventSO> tmp_eventsos = new List<EventSO>();
+        foreach (EventSO EventSO in eventDataList)
+        {
+            if (!EventSO.IsBigEvent)
+            {
+                tmp_eventsos.Add(EventSO);
+            }
+        }
+
+        if (tmp_eventsos.Count <= 0)
+        {
+            Debug.LogError("没有little事件");
+        }
+        return tmp_eventsos[Random.Range(0, tmp_eventsos.Count)];
     }
     
     /// <summary>
