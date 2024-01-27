@@ -10,8 +10,9 @@ public class GameData : Singleton<GameData>
     public int initial_Money = 3;//初始物资
 
     [Header("资源")]
-    public int Money = 0; //当前可配置资金
-    public float Money_Availabled_Fix = 1f; //可配置资金乘数
+    public int Money = 0; //当前资金
+    public int Money_Available = 0; //当前可配置资金
+    public float Money_Available_Fix = 1f; //可配置资金乘数
     public int Supplies = 0;
     public int Science_Point = 0;
     public int Happiness = 0;
@@ -28,6 +29,7 @@ public class GameData : Singleton<GameData>
     public float Science_Point_Output_Fix = 1f;
 
     [Header("抽卡")]
+    public int Draw_Card_Required_Money = 10; //抽卡所需资源
     public bool Draw_Card_Available = true;
     //public int Upgrade_Refresh_Num = 0; //可刷新次数
 
@@ -41,6 +43,11 @@ public class GameData : Singleton<GameData>
 
     [Header("事业升级所需科技点列表")] 
     public List<int> upgrade_Required_Point_List = new List<int>();
+
+    [Header("回报率波动基础值")]
+    public int industry_Return_Rate_Base_Num = 1;
+    public int science_Return_Rate_Base_Num = 1;
+    public int finance_Return_Rate_Base_Num = 1;
 
 
     // Start is called before the first frame update
@@ -67,7 +74,7 @@ public class GameData : Singleton<GameData>
         Science_Point_Output_Fix = 1f;
         Money_Output_Fix = 1f;
         supplies_Consume_Fix = 1f;
-        Money_Availabled_Fix = 1f;
+        Money_Available_Fix = 1f;
         Draw_Card_Available = true;
         Upgrade_Available = true;
     }

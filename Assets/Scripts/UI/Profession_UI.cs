@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
@@ -24,11 +25,15 @@ public class Profession_UI : MonoBehaviour
     public int supplies_Consume = 1; //物资消耗
     public float supplies_Consume_Fix = 1f; //每回合物资消耗修正
 
+    [Header("回报率")]
+    public int return_Rate = 0;
+
     [Header("引用")]
     public Text resources_Value_Text;
     public Text output_Value_Text;
     public Text supplies_Consume_Text;
     public Text uprade_Consume_Text;
+    public TMP_Text return_Rate_Text;
 
 
     // Start is called before the first frame update
@@ -175,11 +180,36 @@ public class Profession_UI : MonoBehaviour
         current_Output_Value = 0;
         current_Happiness_Output_Value = 0;
         isLevel_One = false;
-
+        GenerateReturn_Rate();
         UpdateInfo();
     }
 
+    //生产回报率
+    private void GenerateReturn_Rate()
+    {
+        int base_num = 1;
+        switch (type)
+        {
+            case Enums.Professions.Industry:
+                {
+                    base_num = GameData.GetInstance().industry_Return_Rate_Base_Num;
+                }
+                break;
+            case Enums.Professions.Science:
+                {
+                    base_num = GameData.GetInstance().science_Return_Rate_Base_Num;
+                }
+                break;
+            case Enums.Professions.Finance:
+                {
+                    base_num = GameData.GetInstance().finance_Return_Rate_Base_Num;
+                }
+                break;
+        }
+        return_Rate = Random.Range(-base_num, base_num);
 
+        return_Rate_Text.text = "产出波动：" + return_Rate;
+    }
 
 
 
