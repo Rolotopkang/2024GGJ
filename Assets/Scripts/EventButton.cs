@@ -30,10 +30,10 @@ public class EventButton : MonoBehaviour
         EventImage.sprite = eventSo.EventSprite;
         EventName.text = eventSo.EventName;
         EventDis.text = eventSo.Discription;
-        ButtonColor.ChangeColorState(EventSo.IsBigEvent?
+        ButtonColor.ChangeColorState(!EventBase.active?
             ColorController.ColorState.Grew 
             :ColorController.ColorState.Rainbow);
-        EventColor.ChangeColorState(EventSo.IsBigEvent?
+        EventColor.ChangeColorState(!EventBase.active?
             ColorController.ColorState.Grew 
             :ColorController.ColorState.Rainbow);
         EventInfoGO.SetActive(false);

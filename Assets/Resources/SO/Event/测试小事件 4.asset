@@ -19,4 +19,4 @@ MonoBehaviour:
   EventSprite: {fileID: 0}
   Event: {fileID: -7373751932176654847, guid: 13543b9811487e549b5ae6683556c017, type: 3}
   EventLastTime: 1
-  EventWaitTime: 0
+  EventWaitTime: 1

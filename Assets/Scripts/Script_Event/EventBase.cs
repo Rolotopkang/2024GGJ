@@ -32,7 +32,7 @@ public class EventBase : MonoBehaviour
     {
         WaitRound = eventSo.EventWaitTime;
         LastRound = eventSo.EventLastTime;
-        active = !isBigEvent;
+        active = false;
     }
     
     /// <summary>
