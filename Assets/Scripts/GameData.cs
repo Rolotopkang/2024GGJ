@@ -19,6 +19,8 @@ public class GameData : Singleton<GameData>
     [Header("消耗")]
     //public int supplies_Consume = 1; //每回合物资消耗
     public float supplies_Consume_Fix = 1f; //每回合物资消耗修正
+    public int Money_Spend_Current_Turn = 0; //当前回合会消耗的资金
+    public int All_Money_Current_Turn = 0; //当前回合全部可用资金
 
     [Header("产出修正")]
     public float Money_Output_Fix = 1f;
@@ -50,6 +52,8 @@ public class GameData : Singleton<GameData>
         Supplies = initial_Supplies;
         Science_Point = 0;
         Happiness = 0;
+        All_Money_Current_Turn = Money;
+        Money_Spend_Current_Turn = 0;
         ResetOutputFix();
     }
 
