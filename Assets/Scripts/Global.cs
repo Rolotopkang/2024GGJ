@@ -27,24 +27,29 @@ public class Global : Singleton<Global>
 
     public void StartGame()
     {
+        Debug.Log("开始游戏");
         GameInit();
     }
 
 
     void GameInit()
     {
-        GameData.GetInstance().Money = 0;
-        GameData.GetInstance().Science_Point = 0;
-        GameData.GetInstance().Happiness = 0;
-        GameData.GetInstance().Supplies = GameData.GetInstance().initial_Supplies;
+        GameData.GetInstance().Init();
+
+        for (int i = 0; i < Profession_List.Count; i++)
+        {
+            Profession_List[i].UpdateInfo();
+        }
+        
     }
 
 
     //下一回合
-    void NextTurn()
+    public void NextTurn()
     {
         IncidentUpdate();
         ResourceOutput();
+        SuppliesConsume();
         SuppliesTest();
         HappinessText();
         
@@ -57,6 +62,7 @@ public class Global : Singleton<Global>
         }
 
         GameData.GetInstance().turn_Num += 1;
+        Debug.Log("下一回合");
     }
 
     //事件更新
@@ -70,15 +76,25 @@ public class Global : Singleton<Global>
     private void ResourceOutput()
     {
         //资源产出
-        GameData.GetInstance().Supplies = (int)(GameData.GetInstance().Supplies_Output_Fix * Profession_List[0].current_Output_Value);
-        GameData.GetInstance().Science_Point = (int)(GameData.GetInstance().Science_Point_Output_Fix * Profession_List[1].current_Output_Value);
-        GameData.GetInstance().Money = (int)(GameData.GetInstance().Money_Output_Fix * Profession_List[2].current_Output_Value);
+        GameData.GetInstance().Supplies += (int)(GameData.GetInstance().Supplies_Output_Fix * Profession_List[0].current_Output_Value);
+        GameData.GetInstance().Science_Point += (int)(GameData.GetInstance().Science_Point_Output_Fix * Profession_List[1].current_Output_Value);
+        GameData.GetInstance().Money += (int)(GameData.GetInstance().Money_Output_Fix * Profession_List[2].current_Output_Value);
 
         //幸福度产出
         int happy = 0;
         happy = Profession_List[0].current_Happiness_Output_Value + Profession_List[1].current_Happiness_Output_Value + Profession_List[2].current_Happiness_Output_Value;
         GameData.GetInstance().Happiness += happy;
 
+    }
+
+
+    //物资消耗
+    public void SuppliesConsume()
+    {
+        for (int i = 0; i < Profession_List.Count; i++)
+        {
+            Profession_List[i].SuppliesConsume();
+        }
     }
 
     //物资检查
