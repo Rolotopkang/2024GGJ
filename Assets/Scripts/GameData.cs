@@ -6,7 +6,8 @@ public class GameData : Singleton<GameData>
 {
     public int turn_Num = 1;//当前回合数
 
-    public int initial_Supplies = 3;//初始物资
+    public int initial_Supplies = 12;//初始物资
+    public int initial_Money = 3;//初始物资
 
     [Header("资源")]
     public int Money = 0; //当前可配置资金
@@ -16,7 +17,7 @@ public class GameData : Singleton<GameData>
     public int Happiness_Goal = 100; //幸福度目标
 
     [Header("消耗")]
-    public int supplies_Consume = 1; //每回合物资消耗
+    //public int supplies_Consume = 1; //每回合物资消耗
     public float supplies_Consume_Fix = 1f; //每回合物资消耗修正
 
     [Header("产出修正")]
@@ -40,7 +41,16 @@ public class GameData : Singleton<GameData>
     // Start is called before the first frame update
     void Start()
     {
-        
+        Init();
+    }
+
+    public void Init()
+    {
+        Money = initial_Money;
+        Supplies = initial_Supplies;
+        Science_Point = 0;
+        Happiness = 0;
+        ResetOutputFix();
     }
 
     //重置产出修正值
