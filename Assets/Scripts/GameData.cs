@@ -1,31 +1,32 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameData : Singleton<GameData>
 {
+    public int turn_Num = 1;//å½“å‰å›åˆæ•°
 
-    public int initial_Supplies = 3;//³õÊ¼Îï×Ê
+    public int initial_Supplies = 3;//åˆå§‹ç‰©èµ„
 
-    public int Money = 0; //µ±Ç°¿ÉÅäÖÃ×Ê½ğ
+    public int Money = 0; //å½“å‰å¯é…ç½®èµ„é‡‘
     public int Supplies = 0;
     public int Science_Point = 0;
     public int Happiness = 0;
-    public int Happiness_Goal = 100; //ĞÒ¸£¶ÈÄ¿±ê
+    public int Happiness_Goal = 100; //å¹¸ç¦åº¦ç›®æ ‡
 
-    public int supplies_Consume = 1; //Ã¿»ØºÏÎï×ÊÏûºÄ
-    public float supplies_Consume_Fix = 1f; //Ã¿»ØºÏÎï×ÊÏûºÄĞŞÕı
+    public int supplies_Consume = 1; //æ¯å›åˆç‰©èµ„æ¶ˆè€—
+    public float supplies_Consume_Fix = 1f; //æ¯å›åˆç‰©èµ„æ¶ˆè€—ä¿®æ­£
 
-    //ÊÂÒµ²ú³öĞŞÕı
+    //äº‹ä¸šäº§å‡ºä¿®æ­£
     public float Money_Output_Fix = 1f;
     public float Supplies_Output_Fix = 1f;
     public float Science_Point_Output_Fix = 1f;
 
-    //Éı¼¶
+    //å‡çº§
     public bool Upgrade_Available = false;
-    public int Upgrade_Refresh_Num = 0; //¿ÉË¢ĞÂ´ÎÊı
+    public int Upgrade_Refresh_Num = 0; //å¯åˆ·æ–°æ¬¡æ•°
 
-    //ÊÂÒµµÈ¼¶
+    //äº‹ä¸šç­‰çº§
     public int industry_Level = 0;
     public int science_Level = 0;
     public int finance_Level = 0;
@@ -38,7 +39,7 @@ public class GameData : Singleton<GameData>
         
     }
 
-    //ÖØÖÃ²ú³öĞŞÕıÖµ
+    //é‡ç½®äº§å‡ºä¿®æ­£å€¼
     public void ResetOutputFix()
     {
         Supplies_Output_Fix = 1f;
@@ -46,13 +47,5 @@ public class GameData : Singleton<GameData>
         Money_Output_Fix = 1f;
     }
 
-    //¼ÆËã²ú³ö
-    public void ResourceOutput()
-    {
-        Money = (int)(Money_Output_Fix * Money);
-        Supplies = (int)(Supplies_Output_Fix * Supplies);
-        Science_Point = (int)(Science_Point_Output_Fix * Science_Point);
-
-    }
 
 }
