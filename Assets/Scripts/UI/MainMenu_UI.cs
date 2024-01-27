@@ -11,15 +11,15 @@ public class MainMenu_UI : MonoBehaviour
     }
 
     //开始游戏
-    void StartGame()
+    public void StartGame()
     {
-        Global.Instance.StartGame();
+        Global.GetInstance().StartGame();
         gameObject.SetActive(false);
     }
 
 
     //退出
-    private void Quit()
+    public  void Quit()
     {
         Application.Quit();
     }
