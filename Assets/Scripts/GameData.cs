@@ -53,7 +53,6 @@ public class GameData : Singleton<GameData>
         Supplies = (int)(Supplies_Output_Fix * Supplies);
         Science_Point = (int)(Science_Point_Output_Fix * Science_Point);
 
-        Happiness = (int)(Happiness_Output_Fix * Happiness);
     }
 
 }
