@@ -1,27 +1,27 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Global : Singleton<Global>
 {
-    public static Global Instance ;
+    //public static Global Instance;
 
     public MainMenu_UI mainMenu_UI;
     public GameOver_UI gameOver_UI;
     public List<Profession_UI> Profession_List = new List<Profession_UI>();
 
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainMenu_UI.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -38,45 +38,53 @@ public class Global : Singleton<Global>
         GameData.GetInstance().Happiness = 0;
         GameData.GetInstance().Supplies = GameData.GetInstance().initial_Supplies;
     }
-    
 
-    //ÏÂÒ»»ØºÏ
+
+    //ä¸‹ä¸€å›åˆ
     void NextTurn()
     {
         IncidentUpdate();
         ResourceOutput();
         SuppliesTest();
         HappinessText();
+        
+        GameData.GetInstance().ResetOutputFix();
     }
 
-    //ÊÂ¼ş¸üĞÂ
+    //äº‹ä»¶æ›´æ–°
     private void IncidentUpdate()
     {
-         
+
     }
 
 
-    //×ÊÔ´²ú³ö
+    //èµ„æºäº§å‡º
     private void ResourceOutput()
     {
-
+        GameData.GetInstance().ResourceOutput();
     }
 
-    //Îï×Ê¼ì²é
+    //ç‰©èµ„æ£€æŸ¥
     private void SuppliesTest()
     {
-
+        if (GameData.GetInstance().Supplies <= 0)
+        {
+            GameOver();
+        }
     }
 
 
-    //ĞÒ¸£¶È¼ì²é
+    //å¹¸ç¦åº¦æ£€æŸ¥
     private void HappinessText()
     {
-
+        if (GameData.GetInstance().Happiness >= GameData.GetInstance().Happiness_Goal)
+        {
+            GameSuccess();
+        }
     }
 
-    //Í¶×Ê£¬²ÎÊı£ºĞòºÅ£¬ÊıÖµ
-    public void Invest(int index,int value)
+    //æŠ•èµ„ï¼Œå‚æ•°ï¼šåºå·ï¼Œæ•°å€¼
+    public void Invest(int index, int value)
     {
 
     }
@@ -84,15 +92,15 @@ public class Global : Singleton<Global>
 
     void GameSuccess()
     {
-
+        gameOver_UI.ShowGameOverUI(true);
     }
 
     void GameOver()
     {
-
+        gameOver_UI.ShowGameOverUI(false);
     }
 
-    //»Øµ½Ö÷²Ëµ¥
+    //å›åˆ°ä¸»èœå•
     public void BackToMainMenu()
     {
         mainMenu_UI.gameObject.SetActive(true);
