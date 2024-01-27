@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -121,6 +121,11 @@ public class Profession_UI : MonoBehaviour
         {
             //如果产出已经为0
             if (current_Output_Value <=0 || current_Happiness_Output_Value <= 0)
+            {
+                Debug.Log("无法再撤回投资");
+                return;
+            }
+            if (GameData.GetInstance().Money - Mathf.Abs(value) < -1.1f)
             {
                 Debug.Log("无法再撤回投资");
                 return;
