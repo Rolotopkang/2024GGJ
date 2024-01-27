@@ -30,7 +30,7 @@ public class GameEventSystem : Singleton<GameEventSystem>, IGameService
 
     private void CreateEventIcon(EventSO eventSo, EventBase eventBase)
     {
-        
+        EventButtonManager.GetInstance().GenerateButton(eventSo,eventBase);
     }
 
     /// <summary>
