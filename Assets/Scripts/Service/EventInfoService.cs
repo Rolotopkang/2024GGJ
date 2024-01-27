@@ -64,16 +64,25 @@ public class EventInfoService : MonoBehaviour , IEventInfoService
     /// <exception cref="InvalidOperationException"></exception>
     public List<EventSO> Get3RandomSmallEventSo()
     {
+        List<EventSO> tmp_littleEventsos = new List<EventSO>();
+        foreach (EventSO SO in eventDataList)
+        {
+            if (!SO.IsBigEvent)
+            {
+                tmp_littleEventsos.Add(SO);
+            }
+        }
+        
         // 确保列表中至少有三个元素
-        if (eventDataList.Count < 3)
+        if (tmp_littleEventsos.Count < 3)
         {
             throw new InvalidOperationException("Not enough elements in the list");
         }
 
-        eventDataList.Shuffle();
+        tmp_littleEventsos.Shuffle();
 
         // 选取前三个元素
-        return eventDataList.GetRange(0, 3);
+        return tmp_littleEventsos.GetRange(0, 3);
     }
     
     /// <summary>

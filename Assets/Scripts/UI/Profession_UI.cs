@@ -13,22 +13,22 @@ public class Profession_UI : MonoBehaviour
 
     public bool isLevel_One = false;
 
-    [Header("²ú³ö")]
+    [Header("äº§å‡º")]
     public int output_Value_Per_Unit_initial = 2;
     public int base_Output = 1;
-    public int output_Value_Per_Unit = 2; //µ¥Î»²ú³ö
-    public float current_Output_Value = 0; //ÏÂ»ØºÏ²ú³ö
-    public int happiness_output_Value_Per_Unit = 1; //µ¥Î»ĞÒ¸£¶È²ú³ö
-    public int current_Happiness_Output_Value = 0; //ÏÂ»ØºÏĞÒ¸£¶È²ú³ö
+    public int output_Value_Per_Unit = 2; //å•ä½äº§å‡º
+    public float current_Output_Value = 0; //ä¸‹å›åˆäº§å‡º
+    public int happiness_output_Value_Per_Unit = 1; //å•ä½å¹¸ç¦åº¦äº§å‡º
+    public int current_Happiness_Output_Value = 0; //ä¸‹å›åˆå¹¸ç¦åº¦äº§å‡º
 
-    [Header("ÏûºÄ")]
-    public int supplies_Consume = 1; //Îï×ÊÏûºÄ
-    public float supplies_Consume_Fix = 1f; //Ã¿»ØºÏÎï×ÊÏûºÄĞŞÕı
+    [Header("æ¶ˆè€—")]
+    public int supplies_Consume = 1; //ç‰©èµ„æ¶ˆè€—
+    public float supplies_Consume_Fix = 1f; //æ¯å›åˆç‰©èµ„æ¶ˆè€—ä¿®æ­£
 
-    [Header("»Ø±¨ÂÊ")]
+    [Header("å›æŠ¥ç‡")]
     public int return_Rate = 0;
 
-    [Header("ÒıÓÃ")]
+    [Header("å¼•ç”¨")]
     public Text resources_Value_Text;
     public Text output_Value_Text;
     public Text supplies_Consume_Text;
@@ -42,7 +42,7 @@ public class Profession_UI : MonoBehaviour
         
     }
 
-    //¸üĞÂĞÅÏ¢ÏÔÊ¾
+    //æ›´æ–°ä¿¡æ¯æ˜¾ç¤º
     public void UpdateInfo()
     {
         UpdateUpgradeStatu();
@@ -51,20 +51,20 @@ public class Profession_UI : MonoBehaviour
         {
             case Enums.Professions.Industry:
                 {
-                    resources_Value_Text.text = "Îï×Ê£º"+ ((int)GameData.GetInstance().Supplies).ToString();
-                    output_Value_Text.text = GetOutputValue().ToString() + " Îï×Ê" + current_Happiness_Output_Value.ToString() + " ĞÒ¸£";
+                    resources_Value_Text.text = "ç‰©èµ„ï¼š"+ ((int)GameData.GetInstance().Supplies).ToString();
+                    output_Value_Text.text = GetOutputValue().ToString() + " ç‰©èµ„" + current_Happiness_Output_Value.ToString() + " å¹¸ç¦";
                 }
                 break;
             case Enums.Professions.Science:
                 {
-                    resources_Value_Text.text = "¿ÆÑĞ£º" + ((int)GameData.GetInstance().Science_Point).ToString();
-                    output_Value_Text.text = GetOutputValue().ToString() + " ¿ÆÑĞ" + current_Happiness_Output_Value.ToString() + " ĞÒ¸£";
+                    resources_Value_Text.text = "ç§‘ç ”ï¼š" + ((int)GameData.GetInstance().Science_Point).ToString();
+                    output_Value_Text.text = GetOutputValue().ToString() + " ç§‘ç ”" + current_Happiness_Output_Value.ToString() + " å¹¸ç¦";
                 }
                 break;
             case Enums.Professions.Finance:
                 {
-                    resources_Value_Text.text = "×Ê½ğ£º" + ((int)GameData.GetInstance().Money).ToString();
-                    output_Value_Text.text = GetOutputValue().ToString() + " ×Ê½ğ" + current_Happiness_Output_Value.ToString() + " ĞÒ¸£";
+                    resources_Value_Text.text = "èµ„é‡‘ï¼š" + ((int)GameData.GetInstance().Money).ToString();
+                    output_Value_Text.text = GetOutputValue().ToString() + " èµ„é‡‘" + current_Happiness_Output_Value.ToString() + " å¹¸ç¦";
                 }
                 break;
         }
@@ -102,27 +102,27 @@ public class Profession_UI : MonoBehaviour
     }
 
 
-    //Í¶×Ê¸üĞÂ
+    //æŠ•èµ„æ›´æ–°
     public void UpdateInvest(int value)
     {
-        Debug.Log("Í¶×Ê " + value);
-        //Ôö¼ÓÍ¶×Ê
+        Debug.Log("æŠ•èµ„ " + value);
+        //å¢åŠ æŠ•èµ„
         if (value > 0)
         {
-            //Èç¹û×Ê½ğ²»×ã
+            //å¦‚æœèµ„é‡‘ä¸è¶³
             if (GameData.GetInstance().Money < value)
             {
-                Debug.Log("×Ê½ğ²»×ã ");
+                Debug.Log("èµ„é‡‘ä¸è¶³ ");
                 return;
             }
         }
-        //¼õÉÙÍ¶×Ê
+        //å‡å°‘æŠ•èµ„
         else if ( value < 0)
         {
-            //Èç¹û²ú³öÒÑ¾­Îª0
+            //å¦‚æœäº§å‡ºå·²ç»ä¸º0
             if (current_Output_Value <=0 || current_Happiness_Output_Value <= 0)
             {
-                Debug.Log("ÎŞ·¨ÔÙ³·»ØÍ¶×Ê");
+                Debug.Log("æ— æ³•å†æ’¤å›æŠ•èµ„");
                 return;
             }
             if (GameData.GetInstance().Money - Mathf.Abs(value) < -1.1f)
@@ -189,7 +189,7 @@ public class Profession_UI : MonoBehaviour
         UpdateInfo();
     }
 
-    //Éú²ú»Ø±¨ÂÊ
+    //ç”Ÿäº§å›æŠ¥ç‡
     private void GenerateReturn_Rate()
     {
         int base_num = 1;
@@ -213,12 +213,12 @@ public class Profession_UI : MonoBehaviour
         }
         return_Rate = Random.Range(-base_num, base_num);
 
-        return_Rate_Text.text = "²ú³ö²¨¶¯£º" + return_Rate;
+        return_Rate_Text.text = "äº§å‡ºæ³¢åŠ¨ï¼š" + return_Rate;
     }
 
 
 
-    //¸üĞÂÉı¼¶×´Ì¬
+    //æ›´æ–°å‡çº§çŠ¶æ€
     private void UpdateUpgradeStatu()
     {
         if (GameData.GetInstance().Science_Point >= GameData.GetInstance().upgrade_Required_Point_List[level - 1])
@@ -231,7 +231,7 @@ public class Profession_UI : MonoBehaviour
         }
     }
 
-    //Éı¼¶
+    //å‡çº§
     public void Upgrade()
     {
         if (GameData.GetInstance().Science_Point >= GameData.GetInstance().upgrade_Required_Point_List[level - 1])
@@ -269,11 +269,11 @@ public class Profession_UI : MonoBehaviour
                     }
                     break;
             }
-            Debug.Log("Éı¼¶");
+            Debug.Log("å‡çº§");
         }
         else
         {
-            Debug.Log("¿Æ¼¼µã²»×ã");
+            Debug.Log("ç§‘æŠ€ç‚¹ä¸è¶³");
         }
         
 
