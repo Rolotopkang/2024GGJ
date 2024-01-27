@@ -234,27 +234,49 @@ public class Profession_UI : MonoBehaviour
     //升级
     public void Upgrade()
     {
-        GameData.GetInstance().Science_Point -= level * GameData.GetInstance().upgrade_Required_Point_List[level - 1];
-        level += 1;
-        
-        switch (type)
+        if (GameData.GetInstance().Science_Point >= GameData.GetInstance().upgrade_Required_Point_List[level - 1])
         {
-            case Enums.Professions.Industry:
-                {
-                    GameData.GetInstance().industry_Level = level;
-                }
-                break;
-            case Enums.Professions.Science:
-                {
-                    GameData.GetInstance().science_Level = level;
-                }
-                break;
-            case Enums.Professions.Finance:
-                {
-                    GameData.GetInstance().finance_Level = level;
-                }
-                break;
+            GameData.GetInstance().Science_Point -= GameData.GetInstance().upgrade_Required_Point_List[level - 1];
+            level += 1;
+
+            switch (type)
+            {
+                case Enums.Professions.Industry:
+                    {
+                        GameData.GetInstance().industry_Level = level;
+                        output_Value_Per_Unit = GameData.GetInstance().industry_OutPut[level - 1];
+                        base_Output = GameData.GetInstance().industry_Base_OutPut[level - 1];
+                        supplies_Consume = GameData.GetInstance().industry_Consume[level - 1];
+                        GameData.GetInstance().industry_Return_Rate_Base_Num = GameData.GetInstance().return_Rate_Base[level - 1];
+                    }
+                    break;
+                case Enums.Professions.Science:
+                    {
+                        GameData.GetInstance().science_Level = level;
+                        output_Value_Per_Unit = GameData.GetInstance().science_OutPut[level - 1];
+                        base_Output = GameData.GetInstance().science_Base_OutPut[level - 1];
+                        supplies_Consume = GameData.GetInstance().science_Consume[level - 1];
+                        GameData.GetInstance().science_Return_Rate_Base_Num = GameData.GetInstance().return_Rate_Base[level - 1];
+                    }
+                    break;
+                case Enums.Professions.Finance:
+                    {
+                        GameData.GetInstance().finance_Level = level;
+                        output_Value_Per_Unit = GameData.GetInstance().finance_OutPut[level - 1];
+                        base_Output = GameData.GetInstance().finance_Base_OutPut[level - 1];
+                        supplies_Consume = GameData.GetInstance().finance_Consume[level - 1];
+                        GameData.GetInstance().finance_Return_Rate_Base_Num = GameData.GetInstance().return_Rate_Base[level - 1];
+                    }
+                    break;
+            }
+            Debug.Log("升级");
         }
+        else
+        {
+            Debug.Log("科技点不足");
+        }
+        
+
     }
 
 }

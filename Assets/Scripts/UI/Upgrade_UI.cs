@@ -11,6 +11,22 @@ public class Upgrade_UI : MonoBehaviour
     }
 
     
+    public void UpgradeIndustry()
+    {
+        Global.GetInstance().Profession_List[0].Upgrade();
+    }
+
+    public void UpgradeScience()
+    {
+        Global.GetInstance().Profession_List[1].Upgrade();
+    }
+
+    public void UpgradeFinance()
+    {
+        Global.GetInstance().Profession_List[2].Upgrade();
+    }
+
+
     public void DrawCard()
     {
         if (GameData.GetInstance().Money_Available > GameData.GetInstance().Draw_Card_Required_Money)

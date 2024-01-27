@@ -6,8 +6,8 @@ using Random = UnityEngine.Random;
 
 public class EventInfoService : MonoBehaviour , IEventInfoService
 {
-    [FormerlySerializedAs("itemDataList")] public List<EventSO> eventDataList = new List<EventSO>();
-
+    public List<EventSO> eventDataList = new List<EventSO>();
+    
     private void Awake()
     {
         var _getSources = Resources.LoadAll<EventSO>("SO");
