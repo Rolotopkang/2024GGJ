@@ -197,7 +197,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1051953276583882812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8436450210120357423}
+        m_TargetAssemblyTypeName: Upgrade_UI, Assembly-CSharp
+        m_MethodName: DrawCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1397685678768208750
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,6 +822,7 @@ GameObject:
   - component: {fileID: 4502630559227268473}
   - component: {fileID: 8462372951969992645}
   - component: {fileID: 7338640957308103254}
+  - component: {fileID: 8436450210120357423}
   m_Layer: 5
   m_Name: Upgrade
   m_TagString: Untagged
@@ -900,6 +913,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8436450210120357423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840247172166401057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2187fb8864bb0654da0c766545e9b873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4985239693168439135
 GameObject:
   m_ObjectHideFlags: 0

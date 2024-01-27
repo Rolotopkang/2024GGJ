@@ -90,6 +90,7 @@ public class Global : Singleton<Global>
         GameData.GetInstance().Supplies += (int)(GameData.GetInstance().Supplies_Output_Fix * Profession_List[0].GetOutputValue());
         GameData.GetInstance().Science_Point += (int)(GameData.GetInstance().Science_Point_Output_Fix * Profession_List[1].GetOutputValue());
         GameData.GetInstance().Money += (int)(GameData.GetInstance().Money_Output_Fix * Profession_List[2].GetOutputValue());
+        GameData.GetInstance().Money_Available = (int)(GameData.GetInstance().Money * GameData.GetInstance().Money_Available_Fix);
 
         //幸福度产出
         int happy = 0;
