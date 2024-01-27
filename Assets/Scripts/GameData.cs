@@ -44,6 +44,11 @@ public class GameData : Singleton<GameData>
     [Header("事业升级所需科技点列表")] 
     public List<int> upgrade_Required_Point_List = new List<int>();
 
+    [Header("回报率波动基础值")]
+    public int industry_Return_Rate_Base_Num = 1;
+    public int science_Return_Rate_Base_Num = 1;
+    public int finance_Return_Rate_Base_Num = 1;
+
 
     // Start is called before the first frame update
     void Start()
