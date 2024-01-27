@@ -21,7 +21,7 @@ public class EventInfoService : MonoBehaviour , IEventInfoService
 
         if (BaseItem == null)
         {
-            Debug.LogError("SO缺少基本道具");
+            //Debug.LogError("SO缺少基本道具");
         }
         Debug.Log("物品SO注册完毕");
     }
