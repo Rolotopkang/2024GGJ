@@ -11,7 +11,11 @@ public class Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        
+    }
+    public void PlayEffectAudio()
+    {
+        MusicMgr.GetInstance().PlayEffectMusic("GetCoin", "bonus_coin_1");
     }
     
 }
