@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Global : MonoBehaviour
+public class Global : Singleton<Global>
 {
     public static Global Instance ;
 
@@ -10,16 +10,7 @@ public class Global : MonoBehaviour
     public GameOver_UI gameOver_UI;
     public List<Profession_UI> Profession_List = new List<Profession_UI>();
 
-    public int Money = 0;
-    public int Supplies = 0;
-    public int Science_Point = 0;
-    public int Happiness = 0;
-
-
-    private void Awake()
-    {
-        Instance = this;
-    }
+    
 
     // Start is called before the first frame update
     void Start()
