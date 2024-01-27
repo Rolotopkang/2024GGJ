@@ -11,13 +11,13 @@ public class GameData : Singleton<GameData>
 
     [Header("资源")]
     public int Money = 0; //当前可配置资金
+    public float Money_Availabled_Fix = 1f; //可配置资金乘数
     public int Supplies = 0;
     public int Science_Point = 0;
     public int Happiness = 0;
     public int Happiness_Goal = 100; //幸福度目标
 
     [Header("消耗")]
-    //public int supplies_Consume = 1; //每回合物资消耗
     public float supplies_Consume_Fix = 1f; //每回合物资消耗修正
     public int Money_Spend_Current_Turn = 0; //当前回合会消耗的资金
     public int All_Money_Current_Turn = 0; //当前回合全部可用资金
@@ -27,11 +27,14 @@ public class GameData : Singleton<GameData>
     public float Supplies_Output_Fix = 1f;
     public float Science_Point_Output_Fix = 1f;
 
-    //升级
-    //public bool Upgrade_Available = false;
+    [Header("抽卡")]
+    public bool Draw_Card_Available = true;
     //public int Upgrade_Refresh_Num = 0; //可刷新次数
 
-    //事业等级
+    [Header("升级")]
+    public bool Upgrade_Available = true;
+
+    [Header("事业等级")] 
     public int industry_Level = 0;
     public int science_Level = 0;
     public int finance_Level = 0;
@@ -63,6 +66,10 @@ public class GameData : Singleton<GameData>
         Supplies_Output_Fix = 1f;
         Science_Point_Output_Fix = 1f;
         Money_Output_Fix = 1f;
+        supplies_Consume_Fix = 1f;
+        Money_Availabled_Fix = 1f;
+        Draw_Card_Available = true;
+        Upgrade_Available = true;
     }
 
 

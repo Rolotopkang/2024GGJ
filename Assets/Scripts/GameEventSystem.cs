@@ -30,7 +30,7 @@ public class GameEventSystem : Singleton<GameEventSystem>, IGameService
 
     private void CreateEventIcon(EventSO eventSo, EventBase eventBase)
     {
-        
+        EventButtonManager.GetInstance().GenerateButton(eventSo,eventBase);
     }
 
     /// <summary>
@@ -38,12 +38,12 @@ public class GameEventSystem : Singleton<GameEventSystem>, IGameService
     /// </summary>
     public void OnEndRound()
     {
-        foreach (EventBase eventBase in _eventBasesList)
+        for (int i = _eventBasesList.Count - 1; i >= 0; i--)
         {
-            eventBase.TriggerEvent();
+            _eventBasesList[i].TriggerEvent();
         }
     }
-
+    
     public void DelEvent(EventBase eventBase)
     {
         EventBase tmpdelEventBase = null;

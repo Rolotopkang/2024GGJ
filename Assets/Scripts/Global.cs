@@ -50,6 +50,8 @@ public class Global : Singleton<Global>
     //下一回合
     public void NextTurn()
     {
+        GameData.GetInstance().turn_Num += 1;
+
         IncidentUpdate();
         ResourceOutput();
         SuppliesConsume();
@@ -68,14 +70,16 @@ public class Global : Singleton<Global>
         }
 
         GameData.GetInstance().Money_Spend_Current_Turn = 0;
-        GameData.GetInstance().turn_Num += 1;
-        Debug.Log("下一回合");
+        
+        money_UI.UpdateValue();
+        Debug.Log("下一回合:"+ GameData.GetInstance().turn_Num);
     }
+
 
     //事件更新
     private void IncidentUpdate()
     {
-
+        GameEventSystem.GetInstance().OnEndRound();
     }
 
 
@@ -83,9 +87,9 @@ public class Global : Singleton<Global>
     private void ResourceOutput()
     {
         //资源产出
-        GameData.GetInstance().Supplies += (int)(GameData.GetInstance().Supplies_Output_Fix * Profession_List[0].current_Output_Value);
-        GameData.GetInstance().Science_Point += (int)(GameData.GetInstance().Science_Point_Output_Fix * Profession_List[1].current_Output_Value);
-        GameData.GetInstance().Money += (int)(GameData.GetInstance().Money_Output_Fix * Profession_List[2].current_Output_Value);
+        GameData.GetInstance().Supplies += (int)(GameData.GetInstance().Supplies_Output_Fix * Profession_List[0].GetOutputValue());
+        GameData.GetInstance().Science_Point += (int)(GameData.GetInstance().Science_Point_Output_Fix * Profession_List[1].GetOutputValue());
+        GameData.GetInstance().Money += (int)(GameData.GetInstance().Money_Output_Fix * Profession_List[2].GetOutputValue());
 
         //幸福度产出
         int happy = 0;
@@ -137,7 +141,6 @@ public class Global : Singleton<Global>
 
     }
 
-
     void GameSuccess()
     {
         gameOver_UI.ShowGameOverUI(true);
@@ -153,5 +156,21 @@ public class Global : Singleton<Global>
     {
         mainMenu_UI.gameObject.SetActive(true);
     }
+
+
+
+    //=========================================================================================================================
+
+    //接口
+
+    //=========================================================================================================================
+
+    //设置指定事业等级为1，参数：序号
+    public void SetProfessionLevel_One(int index)
+    {
+        Profession_List[index].isLevel_One = true;
+    }
+
+
 
 }
