@@ -84,7 +84,7 @@ public class Global : Singleton<Global>
 
         if (GameData.GetInstance().turn_Num % 5 == 0)
         {
-             
+            GameEventSystem.GetInstance().CreateGameEvent(ServiceLocator.Current.Get<IEventInfoService>().GetRandomBigEventSo());
         }
     }
 
