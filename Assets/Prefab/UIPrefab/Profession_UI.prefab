@@ -328,6 +328,7 @@ MonoBehaviour:
   uprade_Consume_Text: {fileID: 2272578293206253930}
   return_Rate_Text: {fileID: 5293674507906651414}
   Star: {fileID: 895315986766941464}
+  invest_Money_Text: {fileID: 3556949869334153354}
 --- !u!1 &895315986766941464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,6 +2586,7 @@ MonoBehaviour:
   uprade_Consume_Text: {fileID: 0}
   return_Rate_Text: {fileID: 0}
   Star: {fileID: 0}
+  invest_Money_Text: {fileID: 0}
 --- !u!1 &7343168544566912808
 GameObject:
   m_ObjectHideFlags: 0
