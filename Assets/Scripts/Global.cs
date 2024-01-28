@@ -56,11 +56,10 @@ public class Global : Singleton<Global>
         ResourceOutput();
         SuppliesConsume();
         SuppliesTest();
-        HappinessText();
+        HappinessTest();
 
         //幸福度更新
         happiness_UI.UpdateValue();
-
         //重置产出修正值为1
         GameData.GetInstance().ResetOutputFix();
         //重置事业
@@ -73,7 +72,9 @@ public class Global : Singleton<Global>
 
         IncidentUpdate();
 
+        SetAvailableMoney();
         money_UI.UpdateValue();
+
         Debug.Log("下一回合:"+ GameData.GetInstance().turn_Num);
     }
 
@@ -97,16 +98,23 @@ public class Global : Singleton<Global>
         GameData.GetInstance().Supplies += (int)(GameData.GetInstance().Supplies_Output_Fix * Profession_List[0].GetOutputValue() + Profession_List[0].return_Rate);
         GameData.GetInstance().Science_Point += (int)(GameData.GetInstance().Science_Point_Output_Fix * Profession_List[1].GetOutputValue()+ Profession_List[1].return_Rate);
         GameData.GetInstance().Money += (int)(GameData.GetInstance().Money_Output_Fix * Profession_List[2].GetOutputValue()+ Profession_List[2].return_Rate);
+        
         GameData.GetInstance().Money = Mathf.Min(GameData.GetInstance().Money, GameData.GetInstance().money_Limit[GameData.GetInstance().finance_Level]);
-        GameData.GetInstance().Money_Available = (int)(GameData.GetInstance().Money * GameData.GetInstance().Money_Available_Fix);
 
         //幸福度产出
         int happy = 0;
         happy = Profession_List[0].current_Happiness_Output_Value + Profession_List[1].current_Happiness_Output_Value + Profession_List[2].current_Happiness_Output_Value;
         GameData.GetInstance().Happiness += happy;
 
-        GameData.GetInstance().All_Money_Current_Turn = GameData.GetInstance().Money;
         GameData.GetInstance().Money_Spend_Current_Turn = 0;
+    }
+
+    private void SetAvailableMoney()
+    {
+        GameData.GetInstance().Money_Available = (int)(GameData.GetInstance().Money * GameData.GetInstance().Money_Available_Fix);
+        GameData.GetInstance().All_Money_Current_Turn = GameData.GetInstance().Money_Available;
+        //Debug.Log("可配置资金乘数：" + GameData.GetInstance().Money_Available_Fix);
+        //Debug.Log("当前资金：" + GameData.GetInstance().Money + " 可配置资金：" + GameData.GetInstance().Money_Available);
     }
 
 
@@ -130,7 +138,7 @@ public class Global : Singleton<Global>
 
 
     //幸福度检查
-    private void HappinessText()
+    private void HappinessTest()
     {
         if (GameData.GetInstance().Happiness >= GameData.GetInstance().Happiness_Goal)
         {
