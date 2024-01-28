@@ -15,6 +15,7 @@ public class Profession_UI : MonoBehaviour
 
     public GameObject star_Container;
     private List<GameObject> star_List = new List<GameObject>();
+    private int invest_Money = 0;
 
     [Header("产出")]
     public int output_Value_Per_Unit_initial = 2;
@@ -38,6 +39,7 @@ public class Profession_UI : MonoBehaviour
     public Text uprade_Consume_Text;
     public TMP_Text return_Rate_Text;
     public GameObject Star;
+    public Text invest_Money_Text;
 
 
 
@@ -77,6 +79,8 @@ public class Profession_UI : MonoBehaviour
         supplies_Consume_Text.text = ((int)(supplies_Consume * supplies_Consume_Fix)).ToString();
 
         uprade_Consume_Text.text = GameData.GetInstance().upgrade_Required_Point_List[level - 1].ToString();
+
+        invest_Money_Text.text = invest_Money.ToString();
     }
 
 
@@ -180,6 +184,7 @@ public class Profession_UI : MonoBehaviour
                 break;
         }
 
+        invest_Money += value;
 
         int output_Per_Unit = output_Value_Per_Unit;
         if (isLevel_One)
