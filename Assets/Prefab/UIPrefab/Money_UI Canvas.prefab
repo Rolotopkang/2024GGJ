@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money_Image: {fileID: 5411327568138064537}
+  money_Limit_Text: {fileID: 2414489474424694752}
 --- !u!1 &3056274921891249574
 GameObject:
   m_ObjectHideFlags: 0

@@ -214,6 +214,7 @@ public class Profession_UI : MonoBehaviour
         current_Output_Value = 0;
         current_Happiness_Output_Value = 0;
         isLevel_One = false;
+        invest_Money = 0;
         GenerateReturn_Rate();
         UpdateInfo();
     }

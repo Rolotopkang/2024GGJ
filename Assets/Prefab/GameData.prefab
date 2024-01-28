@@ -53,7 +53,7 @@ MonoBehaviour:
   Supplies: 0
   Science_Point: 0
   Happiness: 0
-  Happiness_Goal: 100
+  Happiness_Goal: 10000
   supplies_Consume_Fix: 1
   Money_Spend_Current_Turn: 0
   All_Money_Current_Turn: 0
@@ -65,19 +65,19 @@ MonoBehaviour:
   industry_Return_Rate_Base_Num: 1
   science_Return_Rate_Base_Num: 1
   finance_Return_Rate_Base_Num: 1
-  Upgrade_Available: 0
+  Upgrade_Available: 1
   industry_Level: 0
   science_Level: 0
   finance_Level: 0
-  upgrade_Required_Point_List: 030000000500000007000000090000000b000000
-  industry_OutPut: 010000000200000003000000
-  science_OutPut: 010000000200000003000000
-  finance_OutPut: 010000000200000003000000
-  industry_Base_OutPut: 010000000200000003000000
-  science_Base_OutPut: 010000000200000003000000
-  finance_Base_OutPut: 010000000200000003000000
-  industry_Consume: 010000000200000003000000
-  science_Consume: 010000000200000003000000
-  finance_Consume: 010000000200000003000000
-  return_Rate_Base: 010000000200000003000000
-  money_Limit: 
+  upgrade_Required_Point_List: 0300000007000000150000003500000096000000
+  industry_OutPut: 010000000200000003000000030000000400000004000000
+  science_OutPut: 010000000200000002000000020000000300000003000000
+  finance_OutPut: 010000000200000002000000030000000300000004000000
+  industry_Base_OutPut: 0000000001000000020000000300000004000000
+  science_Base_OutPut: 000000000000000002000000050000000d000000
+  finance_Base_OutPut: 05000000050000000a0000000a00000014000000
+  industry_Consume: 01000000050000000f000000280000003c000000
+  science_Consume: 01000000030000000a0000001e0000003c000000
+  finance_Consume: 010000000700000014000000320000003c000000
+  return_Rate_Base: 0100000001000000050000000c00000014000000
+  money_Limit: 1e0000003c0000005a00000078000000c8000000
