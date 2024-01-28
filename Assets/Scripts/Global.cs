@@ -161,17 +161,26 @@ public class Global : Singleton<Global>
     //抽卡
     public void DrawCard()
     {
-        if (GameData.GetInstance().Money >= GameData.GetInstance().Draw_Card_Required_Money * GameData.GetInstance().Draw_Card_Required_Money_Fix)
+        if (GameData.GetInstance().Draw_Card_Num >= 0)
         {
-            drawCard_UI.gameObject.SetActive(true);
-            GameData.GetInstance().Money -= (int)(GameData.GetInstance().Draw_Card_Required_Money * GameData.GetInstance().Draw_Card_Required_Money_Fix);
-            GameData.GetInstance().Money_Spend_Current_Turn += GameData.GetInstance().Draw_Card_Required_Money;
-            money_UI.UpdateValue();
+            if (GameData.GetInstance().Money >= GameData.GetInstance().Draw_Card_Required_Money * GameData.GetInstance().Draw_Card_Required_Money_Fix)
+            {
+                drawCard_UI.gameObject.SetActive(true);
+                GameData.GetInstance().Money -= (int)(GameData.GetInstance().Draw_Card_Required_Money * GameData.GetInstance().Draw_Card_Required_Money_Fix);
+                GameData.GetInstance().Money_Spend_Current_Turn += GameData.GetInstance().Draw_Card_Required_Money;
+                GameData.GetInstance().Draw_Card_Num -= 1;
+                money_UI.UpdateValue();
+            }
+            else
+            {
+                Debug.Log("科技点不足无法抽卡");
+            }
         }
         else
         {
-            Debug.Log("科技点不足无法抽卡");
+            Debug.Log("抽卡次数不足");
         }
+        
         
     }
 

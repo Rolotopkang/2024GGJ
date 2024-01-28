@@ -32,7 +32,7 @@ public class GameData : Singleton<GameData>
     public int Draw_Card_Required_Money = 10; //抽卡所需资源
     public float Draw_Card_Required_Money_Fix = 1f;
     public bool Draw_Card_Available = true;
-    //public int Upgrade_Refresh_Num = 0; //可刷新次数
+    public int Draw_Card_Num = 1; //抽卡
 
     [Header("回报率波动基础值")]
     public int industry_Return_Rate_Base_Num = 1;
@@ -102,6 +102,8 @@ public class GameData : Singleton<GameData>
         Money_Available_Fix = 1f;
         Draw_Card_Available = true;
         Upgrade_Available = true;
+        Draw_Card_Num = 1; 
+
     }
 
 
