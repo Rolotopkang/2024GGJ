@@ -151,7 +151,15 @@ public class Global : Singleton<Global>
     //抽卡
     public void DrawCard()
     {
-        drawCard_UI.gameObject.SetActive(true);
+        if (GameData.GetInstance().Supplies >= GameData.GetInstance().Supplies_Output_Fix)
+        {
+            drawCard_UI.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("科技点不足无法抽卡");
+        }
+        
     }
 
     void GameSuccess()
