@@ -46,6 +46,9 @@ public class EventBase : MonoBehaviour
             if (WaitRound <= 0)
             {
                 active = true;
+                //各自逻辑
+                Debug.Log(this.name+ "事件结算");
+                EventTrigger();
             }
             return;
         }
