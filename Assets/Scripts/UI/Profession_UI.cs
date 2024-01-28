@@ -10,8 +10,10 @@ public class Profession_UI : MonoBehaviour
     public Enums.Professions type;
     public int level = 1;
     public bool upgrade_Available = false;
-
     public bool isLevel_One = false;
+
+    public GameObject star_Container;
+    private List<GameObject> star_List = new List<GameObject>();
 
     [Header("产出")]
     public int output_Value_Per_Unit_initial = 2;
@@ -34,12 +36,14 @@ public class Profession_UI : MonoBehaviour
     public Text supplies_Consume_Text;
     public Text uprade_Consume_Text;
     public TMP_Text return_Rate_Text;
+    public GameObject Star;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     //更新信息显示
@@ -229,6 +233,23 @@ public class Profession_UI : MonoBehaviour
         {
             upgrade_Available = false;
         }
+
+        //更新星星显示
+        for (int i = 0;i< star_List.Count;i++)
+        {
+            Destroy(star_List[i]);
+        }
+        star_List.Clear();
+
+        for (int i = 0; i< level; i++)
+        {
+            GameObject s = Instantiate(Star);
+            s.transform.SetParent(star_Container.transform);
+            s.gameObject.SetActive(true);
+            star_List.Add(s);
+        }
+
+        Debug.Log("更新升级显示");
     }
 
     //升级
@@ -270,6 +291,8 @@ public class Profession_UI : MonoBehaviour
                     break;
             }
             Debug.Log("升级");
+
+            UpdateInfo();
         }
         else
         {
