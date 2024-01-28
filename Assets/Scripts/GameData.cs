@@ -38,6 +38,8 @@ public class GameData : Singleton<GameData>
     public int science_Return_Rate_Base_Num = 1;
     public int finance_Return_Rate_Base_Num = 1;
 
+
+
     [Header("升级")]
     public bool Upgrade_Available = true;
 

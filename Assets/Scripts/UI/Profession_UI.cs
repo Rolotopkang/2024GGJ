@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -55,19 +56,19 @@ public class Profession_UI : MonoBehaviour
         {
             case Enums.Professions.Industry:
                 {
-                    resources_Value_Text.text = "物资：" + ((int)GameData.GetInstance().Supplies).ToString();
+                    resources_Value_Text.text = "物资：" + GameData.GetInstance().Supplies.ToString();
                     output_Value_Text.text = GetOutputValue().ToString() + " 物资" + current_Happiness_Output_Value.ToString() + " 幸福";
                 }
                 break;
             case Enums.Professions.Science:
                 {
-                    resources_Value_Text.text = "科研：" + ((int)GameData.GetInstance().Science_Point).ToString();
+                    resources_Value_Text.text = "科研：" + GameData.GetInstance().Science_Point.ToString();
                     output_Value_Text.text = GetOutputValue().ToString() + " 科研" + current_Happiness_Output_Value.ToString() + " 幸福";
                 }
                 break;
             case Enums.Professions.Finance:
                 {
-                    resources_Value_Text.text = "资金：" + ((int)GameData.GetInstance().Money).ToString();
+                    resources_Value_Text.text = "资金：" + GameData.GetInstance().Money.ToString();
                     output_Value_Text.text = GetOutputValue().ToString() + " 资金" + current_Happiness_Output_Value.ToString() + " 幸福";
                 }
                 break;
@@ -81,7 +82,26 @@ public class Profession_UI : MonoBehaviour
 
     public int GetOutputValue()
     {
-        int output_Value = (int)current_Output_Value + base_Output;
+        float fix = 1f;
+        switch (type)
+        {
+            case Enums.Professions.Industry:
+                {
+                    fix = GameData.GetInstance().Supplies_Output_Fix;
+                }
+                break;
+            case Enums.Professions.Science:
+                {
+                    fix = GameData.GetInstance().Science_Point_Output_Fix;
+                }
+                break;
+            case Enums.Professions.Finance:
+                {
+                    fix = GameData.GetInstance().Money_Output_Fix;
+                }
+                break;
+        }
+        int output_Value = (int)((current_Output_Value + base_Output) * fix);
         return output_Value;
     }
 
