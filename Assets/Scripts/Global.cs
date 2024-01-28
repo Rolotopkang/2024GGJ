@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Global : Singleton<Global>
 {
@@ -156,6 +157,8 @@ public class Global : Singleton<Global>
         {
             drawCard_UI.gameObject.SetActive(true);
             GameData.GetInstance().Money -= GameData.GetInstance().Draw_Card_Required_Money;
+            GameData.GetInstance().Money_Spend_Current_Turn += GameData.GetInstance().Draw_Card_Required_Money;
+            money_UI.UpdateValue();
         }
         else
         {

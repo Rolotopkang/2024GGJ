@@ -318,7 +318,7 @@ public class Profession_UI : MonoBehaviour
             }
             Debug.Log("升级");
 
-            UpdateInfo();
+            Global.GetInstance().UpdateAllProfession();
         }
         else
         {
