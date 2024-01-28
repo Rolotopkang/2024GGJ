@@ -30,6 +30,7 @@ public class GameData : Singleton<GameData>
 
     [Header("抽卡")]
     public int Draw_Card_Required_Money = 10; //抽卡所需资源
+    public float Draw_Card_Required_Money_Fix = 1f;
     public bool Draw_Card_Available = true;
     //public int Upgrade_Refresh_Num = 0; //可刷新次数
 
