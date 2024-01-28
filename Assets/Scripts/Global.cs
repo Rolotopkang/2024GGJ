@@ -161,10 +161,10 @@ public class Global : Singleton<Global>
     //抽卡
     public void DrawCard()
     {
-        if (GameData.GetInstance().Money >= GameData.GetInstance().Draw_Card_Required_Money)
+        if (GameData.GetInstance().Money >= GameData.GetInstance().Draw_Card_Required_Money * GameData.GetInstance().Draw_Card_Required_Money_Fix)
         {
             drawCard_UI.gameObject.SetActive(true);
-            GameData.GetInstance().Money -= GameData.GetInstance().Draw_Card_Required_Money;
+            GameData.GetInstance().Money -= (int)(GameData.GetInstance().Draw_Card_Required_Money * GameData.GetInstance().Draw_Card_Required_Money_Fix);
             GameData.GetInstance().Money_Spend_Current_Turn += GameData.GetInstance().Draw_Card_Required_Money;
             money_UI.UpdateValue();
         }
