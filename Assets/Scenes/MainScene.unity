@@ -724,17 +724,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6de3e4a00ab32f142bc8b3d37a29539a, type: 3}
---- !u!114 &501968229 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8026766727217018476, guid: c02d49a144b7787408790ec045fa361f, type: 3}
-  m_PrefabInstance: {fileID: 146951255493955447}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621934a3a2b830a45bb8e94088717f3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1284,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718771036}
   m_CullTransparentMesh: 1
+--- !u!114 &936138295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8026766727217018476, guid: c02d49a144b7787408790ec045fa361f, type: 3}
+  m_PrefabInstance: {fileID: 146951255493955447}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621934a3a2b830a45bb8e94088717f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &957141530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,7 +1739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu_UI: {fileID: 1835063562133372906}
-  gameOver_UI: {fileID: 501968229}
+  gameOver_UI: {fileID: 936138295}
   happiness_UI: {fileID: 2048248358}
   money_UI: {fileID: 678144953}
   drawCard_UI: {fileID: 2044029690}
