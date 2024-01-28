@@ -82,6 +82,7 @@ public class GameData : Singleton<GameData>
     public void Init()
     {
         Money = initial_Money;
+        Money_Available = initial_Money;
         Supplies = initial_Supplies;
         Science_Point = 0;
         Happiness = 0;

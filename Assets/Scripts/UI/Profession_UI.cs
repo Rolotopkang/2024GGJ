@@ -138,7 +138,7 @@ public class Profession_UI : MonoBehaviour
         if (value > 0)
         {
             //如果资金不足
-            if (GameData.GetInstance().Money < value)
+            if (GameData.GetInstance().Money_Available < value)
             {
                 Debug.Log("资金不足 ");
                 return;
@@ -195,6 +195,7 @@ public class Profession_UI : MonoBehaviour
         current_Output_Value += value * output_Per_Unit * fix;
 
         current_Happiness_Output_Value += value * happiness_output_Value_Per_Unit;
+        GameData.GetInstance().Money_Available -= value;
         GameData.GetInstance().Money -= value;
         GameData.GetInstance().Money_Spend_Current_Turn += value;
         Global.GetInstance().UpdateAllProfession();
