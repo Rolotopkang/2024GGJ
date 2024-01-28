@@ -80,6 +80,11 @@ public class Global : Singleton<Global>
     private void IncidentUpdate()
     {
         GameEventSystem.GetInstance().OnEndRound();
+
+        if (GameData.GetInstance().turn_Num % 5 == 0)
+        {
+             
+        }
     }
 
 
