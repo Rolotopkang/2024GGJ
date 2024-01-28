@@ -10,6 +10,7 @@ public class Global : Singleton<Global>
     public GameOver_UI gameOver_UI;
     public Happiness_UI happiness_UI;
     public Money_UI money_UI;
+    public GameObject drawCard_UI;
     public List<Profession_UI> Profession_List = new List<Profession_UI>();
 
 
@@ -80,6 +81,11 @@ public class Global : Singleton<Global>
     private void IncidentUpdate()
     {
         GameEventSystem.GetInstance().OnEndRound();
+
+        if (GameData.GetInstance().turn_Num % 5 == 0)
+        {
+             
+        }
     }
 
 
@@ -140,6 +146,12 @@ public class Global : Singleton<Global>
 
         money_UI.UpdateValue();
 
+    }
+
+    //抽卡
+    public void DrawCard()
+    {
+        drawCard_UI.gameObject.SetActive(true);
     }
 
     void GameSuccess()
